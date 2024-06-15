@@ -1,0 +1,15 @@
+{
+	"plugins": ["@trivago/prettier-plugin-sort-imports"],
+	"useTabs": true,
+	"tabWidth": 2,
+	"importOrder": [
+		"<THIRD_PARTY_MODULES>",
+		"^@/database/(.*)$",
+		"^@/controllers/(.*)$",
+		"^@/schemas/(.*)$",
+		"^@/routes/(.*)$",
+		"^@/lib/(.*)$",
+		"^[./]"
+	],
+	"importOrderSeparation": true
+}
