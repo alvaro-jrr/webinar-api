@@ -16,7 +16,7 @@ export const users = sqliteTable("users", {
 		.primaryKey(),
 	email: text("email", { length: 50 }).notNull().unique(),
 	fullName: text("full_name", { length: 50 }).notNull(),
-	password: text("password", { length: 50 }).notNull(),
+	password: text("password", { length: 70 }).notNull(),
 });
 
 /**
