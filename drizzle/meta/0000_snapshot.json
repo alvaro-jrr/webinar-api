@@ -1,7 +1,7 @@
 {
   "version": "6",
   "dialect": "sqlite",
-  "id": "54cfaed7-ed8f-46dc-99d9-5314c69d04c0",
+  "id": "0c604eb8-1e57-4219-9053-9cd0676ee736",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "tables": {
     "assignments": {
@@ -247,7 +247,7 @@
           "name": "password",
           "type": "text(50)",
           "primaryKey": false,
-          "notNull": false,
+          "notNull": true,
           "autoincrement": false
         }
       },

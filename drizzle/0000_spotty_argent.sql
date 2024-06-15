@@ -35,7 +35,7 @@ CREATE TABLE `users` (
 	`id` text PRIMARY KEY NOT NULL,
 	`email` text(50) NOT NULL,
 	`full_name` text(50) NOT NULL,
-	`password` text(50)
+	`password` text(50) NOT NULL
 );
 --> statement-breakpoint
 CREATE UNIQUE INDEX `assistants_email_unique` ON `assistants` (`email`);--> statement-breakpoint
