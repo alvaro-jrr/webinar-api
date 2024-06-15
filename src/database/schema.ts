@@ -8,6 +8,18 @@ import {
 } from "drizzle-orm/sqlite-core";
 
 /**
+ * The system users.
+ */
+export const users = sqliteTable("users", {
+	id: text("id")
+		.$defaultFn(() => createId())
+		.primaryKey(),
+	email: text("email", { length: 50 }).notNull().unique(),
+	fullName: text("full_name", { length: 50 }).notNull(),
+	password: text("password", { length: 50 }),
+});
+
+/**
  * The webinar assistants.
  */
 export const assistants = sqliteTable("assistants", {
