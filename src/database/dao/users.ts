@@ -52,7 +52,28 @@ export class UserDao {
 	 */
 	static async getById(id: string) {
 		return db.query.users.findFirst({
+			columns: {
+				password: false,
+			},
 			where: (users, { eq }) => eq(users.id, id),
 		});
+	}
+
+	/**
+	 * Wether an user with the id exists.
+	 *
+	 * @param id - The user id.
+	 *
+	 * @returns Boolean that indicates if an user has the id.
+	 */
+	static async isUser(id: string) {
+		const user = await db.query.users.findFirst({
+			columns: {
+				id: true,
+			},
+			where: (users, { eq }) => eq(users.id, id),
+		});
+
+		return Boolean(user);
 	}
 }

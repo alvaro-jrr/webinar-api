@@ -5,4 +5,6 @@ export const envSchema = z.object({
 	DB_URL: z.union([z.string().regex(/^file:/), z.string().url()]),
 	/** The auth token to make valid requests on remote database  */
 	DB_AUTH_TOKEN: z.string().default(""),
+	/** The JWT Secret */
+	JWT_SECRET: z.string().min(1),
 });
