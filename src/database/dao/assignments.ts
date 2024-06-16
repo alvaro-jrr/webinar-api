@@ -50,4 +50,18 @@ export class AssignmentDao {
 			where: (assignments, { eq }) => eq(assignments.id, id),
 		});
 	}
+
+	/**
+	 * Wether the score for the assignment is valid.
+	 *
+	 * @param params - The assignment id and the score to set.
+	 *
+	 * @returns A boolean that indicates if the score is valid.
+	 */
+	static async isScoreValid({ id, score }: { id: string; score: number }) {
+		const assignment = await this.getById(id);
+		if (!assignment) return false;
+
+		return score >= 0 && score <= assignment.weighting;
+	}
 }

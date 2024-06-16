@@ -1,4 +1,5 @@
 import { createId } from "@paralleldrive/cuid2";
+import { relations } from "drizzle-orm";
 import {
 	text,
 	sqliteTable,
@@ -47,6 +48,10 @@ export const assignments = sqliteTable("assignments", {
 	weighting: real("weighting").notNull().default(0),
 });
 
+export const assignmentsRelations = relations(assignments, ({ many }) => ({
+	deliveries: many(deliveries),
+}));
+
 /**
  * The webinar participants.
  */
@@ -58,6 +63,10 @@ export const participants = sqliteTable("participants", {
 	role: text("role", { length: 50 }).notNull(),
 	cvUrl: text("cv_url").notNull(),
 });
+
+export const participantsRelations = relations(participants, ({ many }) => ({
+	deliveries: many(deliveries),
+}));
 
 /**
  * The deliveries a participant made for an assigment.
@@ -85,3 +94,14 @@ export const deliveries = sqliteTable(
 		participantAssignment: unique().on(table.assignmentId, table.participantId),
 	}),
 );
+
+export const deliveriesRelations = relations(deliveries, ({ one }) => ({
+	participant: one(participants, {
+		fields: [deliveries.participantId],
+		references: [participants.id],
+	}),
+	assignment: one(assignments, {
+		fields: [deliveries.assignmentId],
+		references: [assignments.id],
+	}),
+}));
