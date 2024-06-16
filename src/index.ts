@@ -1,6 +1,7 @@
 import { serve } from "@hono/node-server";
 import { Hono } from "hono";
 import { cors } from "hono/cors";
+import { showRoutes } from "hono/dev";
 import { HTTPException } from "hono/http-exception";
 import { logger } from "hono/logger";
 
@@ -34,6 +35,7 @@ app.onError((err, c) => {
 
 const port = 3000;
 console.log(`Server is running on port ${port}`);
+showRoutes(app);
 
 serve({
 	fetch: app.fetch,

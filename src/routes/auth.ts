@@ -6,8 +6,10 @@ import { AuthController } from "@/controllers/auth";
 
 export const authRouter = new Hono();
 
+// Login an user.
 authRouter.post("/login", AuthController.login);
 
+// Check the user status.
 authRouter
 	.use(...authMiddleware)
 	.get("/check-status", AuthController.checkStatus);
