@@ -18,9 +18,9 @@ export const authMiddleware = [
 			});
 		}
 
-		const isUser = await UserDao.isUser(payload.userId);
+		const exists = await UserDao.exists(payload.userId);
 
-		if (!isUser) {
+		if (!exists) {
 			throw new HTTPException(401, {
 				message: "User not found",
 			});

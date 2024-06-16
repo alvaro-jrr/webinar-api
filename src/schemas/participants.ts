@@ -9,4 +9,14 @@ export const insertParticipantSchema = createInsertSchema(participants, {
 	role: (schema) => schema.role.min(1).max(50),
 });
 
+export const updateParticipantSchema = insertParticipantSchema
+	.omit({
+		id: true,
+	})
+	.partial();
+
 export type InsertParticipant = z.infer<typeof insertParticipantSchema>;
+
+export type UpdateParticipant = z.infer<typeof updateParticipantSchema> & {
+	id: string;
+};

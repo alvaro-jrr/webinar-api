@@ -66,7 +66,7 @@ export class UserDao {
 	 *
 	 * @returns Boolean that indicates if an user has the id.
 	 */
-	static async isUser(id: string) {
+	static async exists(id: string) {
 		const user = await db.query.users.findFirst({
 			columns: {
 				id: true,

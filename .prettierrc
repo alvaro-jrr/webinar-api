@@ -5,6 +5,7 @@
 	"importOrder": [
 		"<THIRD_PARTY_MODULES>",
 		"^@/database/?(.*)$",
+		"^@/middlewares/?(.*)$",
 		"^@/controllers/(.*)$",
 		"^@/schemas/(.*)$",
 		"^@/routes/(.*)$",

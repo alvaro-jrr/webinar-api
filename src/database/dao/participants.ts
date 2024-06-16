@@ -1,4 +1,6 @@
-import { InsertParticipant } from "@/schemas/participants";
+import { eq } from "drizzle-orm";
+
+import { InsertParticipant, UpdateParticipant } from "@/schemas/participants";
 
 import { db } from "../client";
 import { participants } from "../schema";
@@ -21,6 +23,39 @@ export class ParticipantDao {
 	}
 
 	/**
+	 * Updates a participant.
+	 *
+	 * @param participant - The participant to update.
+	 *
+	 * @returns The updated participant.
+	 */
+	static async update(participant: UpdateParticipant) {
+		const [result] = await db
+			.update(participants)
+			.set(participant)
+			.where(eq(participants.id, participant.id))
+			.returning();
+
+		return result;
+	}
+
+	/**
+	 * Deletes a participant.
+	 *
+	 * @param participantId - The participant to delete.
+	 *
+	 * @returns Wether the participant was deleted.
+	 */
+	static async delete(participantId: string) {
+		const [result] = await db
+			.delete(participants)
+			.where(eq(participants.id, participantId))
+			.returning();
+
+		return Boolean(result);
+	}
+
+	/**
 	 * Returns the participants.
 	 *
 	 * @param params - The query params.
@@ -30,7 +65,7 @@ export class ParticipantDao {
 	static async getAll({
 		page = 1,
 		count,
-	}: Partial<{ page: number; count: number }>) {
+	}: Partial<{ page: number; count: number }> = {}) {
 		return db.query.participants.findMany({
 			limit: count,
 			offset: count ? (page - 1) * count : undefined,
@@ -49,5 +84,23 @@ export class ParticipantDao {
 		return db.query.participants.findFirst({
 			where: (participants, { eq }) => eq(participants.id, id),
 		});
+	}
+
+	/**
+	 * Wether the participant with the id exists.
+	 *
+	 * @param id - The participant id.
+	 *
+	 * @returns Returns a boolean.
+	 */
+	static async exists(id: string) {
+		const participant = await db.query.participants.findFirst({
+			columns: {
+				id: true,
+			},
+			where: (participants, { eq }) => eq(participants.id, id),
+		});
+
+		return Boolean(participant);
 	}
 }

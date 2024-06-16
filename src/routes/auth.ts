@@ -1,5 +1,6 @@
-import { authMiddleware } from "@/middlewares/auth-middleware";
 import { Hono } from "hono";
+
+import { authMiddleware } from "@/middlewares/auth-middleware";
 
 import { AuthController } from "@/controllers/auth";
 

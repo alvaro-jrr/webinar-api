@@ -6,6 +6,7 @@ import { logger } from "hono/logger";
 
 import { response } from "./lib/utils";
 import { authRouter } from "./routes/auth";
+import { participantsRouter } from "./routes/participants";
 import { usersRouter } from "./routes/users";
 
 const app = new Hono({ strict: false });
@@ -17,6 +18,7 @@ app.use(logger());
 // Routes.
 app.route("/auth", authRouter);
 app.route("/users", usersRouter);
+app.route("/participants", participantsRouter);
 
 // Handle errors.
 app.onError((err, c) => {
