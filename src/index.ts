@@ -7,6 +7,7 @@ import { logger } from "hono/logger";
 import { response } from "./lib/utils";
 import { assignmentsRouter } from "./routes/assignments";
 import { authRouter } from "./routes/auth";
+import { deliveriesRouter } from "./routes/deliveries";
 import { participantsRouter } from "./routes/participants";
 import { usersRouter } from "./routes/users";
 
@@ -21,6 +22,7 @@ app.route("/auth", authRouter);
 app.route("/users", usersRouter);
 app.route("/participants", participantsRouter);
 app.route("/assignments", assignmentsRouter);
+app.route("/deliveries", deliveriesRouter);
 
 // Handle errors.
 app.onError((err, c) => {

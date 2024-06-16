@@ -8,6 +8,7 @@ export const participantsRouter = new Hono();
 
 participantsRouter.get("/", ParticipantController.getAll);
 participantsRouter.get("/:id", ParticipantController.getById);
+participantsRouter.get("/:id/deliveries", ParticipantController.getDeliveries);
 
 participantsRouter
 	.use(...authMiddleware)

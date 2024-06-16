@@ -1,7 +1,6 @@
 import { Context } from "hono";
 
 import { AssignmentDao } from "@/database/dao/assignments";
-import { DeliveryDao } from "@/database/dao/deliveries";
 
 import {
 	insertAssignmentSchema,
@@ -94,16 +93,6 @@ export class AssignmentController {
 				return response(c, {
 					status: 400,
 					message: "The weighting is not valid",
-				});
-			}
-
-			const assignmentHighestScore = await DeliveryDao.getHighestScore(id);
-
-			// Validate that the next weighting isn't lower than the highest score.
-			if (assignmentHighestScore && body.weighting > assignmentHighestScore) {
-				return response(c, {
-					status: 400,
-					message: `The weighting can't be set until all deliveries have a lower score than ${body.weighting}`,
 				});
 			}
 		}

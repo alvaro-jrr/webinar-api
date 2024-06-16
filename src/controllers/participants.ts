@@ -1,5 +1,6 @@
 import { Context } from "hono";
 
+import { DeliveryDao } from "@/database/dao/deliveries";
 import { ParticipantDao } from "@/database/dao/participants";
 
 import {
@@ -130,6 +131,24 @@ export class ParticipantController {
 		return response(c, {
 			status: 200,
 			data: participant ?? null,
+		});
+	}
+
+	/**
+	 * Returns the participant deliveries.
+	 *
+	 * @param c - The route context.
+	 */
+	static async getDeliveries(c: Context) {
+		const id = c.req.param("id");
+
+		const deliveries = await DeliveryDao.getByParticipant({
+			participantId: id,
+		});
+
+		return response(c, {
+			status: 200,
+			data: deliveries,
 		});
 	}
 
