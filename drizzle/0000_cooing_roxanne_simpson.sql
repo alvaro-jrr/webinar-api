@@ -1,7 +1,7 @@
 CREATE TABLE `assignments` (
 	`id` text PRIMARY KEY NOT NULL,
-	`title` text(50) NOT NULL,
-	`weighting` real DEFAULT 0 NOT NULL
+	`title` text(100) NOT NULL,
+	`weighting` real NOT NULL
 );
 --> statement-breakpoint
 CREATE TABLE `assistants` (

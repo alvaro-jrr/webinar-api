@@ -1,3 +1,5 @@
+import { eq, max } from "drizzle-orm";
+
 import { InsertDelivery } from "@/schemas/deliveries";
 
 import { db } from "../client";
@@ -48,6 +50,22 @@ export class DeliveryDao {
 		return db.query.deliveries.findFirst({
 			where: (deliveries, { eq }) => eq(deliveries.id, id),
 		});
+	}
+
+	/**
+	 * Returns the highest score in the assignment with the id.
+	 *
+	 * @param assignmentId - The assignment id.
+	 *
+	 * @returns The score.
+	 */
+	static async getHighestScore(assignmentId: string) {
+		const [result] = await db
+			.select({ value: max(deliveries.score) })
+			.from(deliveries)
+			.where(eq(deliveries.assignmentId, assignmentId));
+
+		return result?.value;
 	}
 
 	/**

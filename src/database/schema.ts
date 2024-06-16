@@ -44,8 +44,8 @@ export const assignments = sqliteTable("assignments", {
 	id: text("id")
 		.$defaultFn(() => createId())
 		.primaryKey(),
-	title: text("title", { length: 50 }).notNull(),
-	weighting: real("weighting").notNull().default(0),
+	title: text("title", { length: 100 }).notNull(),
+	weighting: real("weighting").notNull(),
 });
 
 export const assignmentsRelations = relations(assignments, ({ many }) => ({

@@ -4,8 +4,18 @@ import { z } from "zod";
 import { assignments } from "@/database/schema";
 
 export const insertAssignmentSchema = createInsertSchema(assignments, {
-	title: (schema) => schema.title.min(1).max(50),
+	title: (schema) => schema.title.min(1).max(100),
 	weighting: (schema) => schema.weighting.gt(0).lte(100),
 });
 
+export const updateAssignmentSchema = insertAssignmentSchema
+	.omit({
+		id: true,
+	})
+	.partial();
+
 export type InsertAssignment = z.infer<typeof insertAssignmentSchema>;
+
+export type UpdateAssignment = z.infer<typeof updateAssignmentSchema> & {
+	id: string;
+};
