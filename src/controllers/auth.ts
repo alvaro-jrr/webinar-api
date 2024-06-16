@@ -44,8 +44,6 @@ export class AuthController {
 		const token = await JwtUtils.set(c, user.id);
 		const { password, ...restOfUser } = user;
 
-		console.log("GET", JwtUtils.get(c));
-
 		return response(c, {
 			status: 200,
 			data: {
