@@ -1,0 +1,72 @@
+[
+	{
+		"title": "Introducción al Desarrollo Web",
+		"weighting": 5,
+		"date": "2024-04-14"
+	},
+	{
+		"title": "Diseño UI, UX y Accesibilidad para la Web Moderna",
+		"weighting": 5,
+		"date": "2024-04-21"
+	},
+	{
+		"title": "Despliegue, Colaboración y Mantenimiento de Proyectos Web",
+		"weighting": 5,
+		"date": "2024-04-28"
+	},
+	{
+		"title": "Creación de Contenido Web con HTML y CSS",
+		"weighting": 5,
+		"date": "2024-05-12"
+	},
+	{
+		"title": "Interactividad Web con JavaScript y Herramientas Front-end",
+		"weighting": 5,
+		"date": "2024-05-19"
+	},
+	{
+		"title": "Introducción al Desarrollo Back-end y Gestión de Datos",
+		"weighting": 5,
+		"date": "2024-05-26"
+	},
+	{
+		"title": "Protocolos Web y API Integrations",
+		"weighting": 5,
+		"date": "2024-06-09"
+	},
+	{
+		"title": "Desarrollo Web Avanzado y Rendimiento en la web del proyecto",
+		"weighting": 5,
+		"date": "2024-06-16"
+	},
+	{
+		"title": "Seguridad Web en la web del proyecto",
+		"weighting": 5,
+		"date": "2024-06-16"
+	},
+	{
+		"title": "Entrevista",
+		"weighting": 10,
+		"date": "2024-06-23"
+	},
+	{
+		"title": "Inteligencia Artificial en la Web de la prueba",
+		"weighting": 5,
+		"date": "2024-06-23"
+	},
+	{
+		"title": "Prueba Técnica",
+		"weighting": 10,
+		"date": "2024-06-23"
+	},
+	{
+		"title": "Testing Web de la prueba",
+		"weighting": 5,
+		"date": "2024-06-23"
+	},
+	{
+		"title": "Proyecto",
+		"weighting": 25,
+		"date": "2024-07-10"
+	}
+]
