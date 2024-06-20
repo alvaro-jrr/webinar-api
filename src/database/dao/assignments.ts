@@ -90,7 +90,7 @@ export class AssignmentDao {
 					},
 				},
 			},
-			orderBy: (assignments, { asc }) => asc(assignments.title),
+			orderBy: (assignments, { asc }) => asc(assignments.date),
 		});
 
 		return assignmentsWithDelivery.map(({ deliveries, ...assignment }) => {
