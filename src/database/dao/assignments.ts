@@ -69,7 +69,35 @@ export class AssignmentDao {
 		return db.query.assignments.findMany({
 			limit: count,
 			offset: count ? (page - 1) * count : undefined,
+			orderBy: (assignments, { asc }) => asc(assignments.date),
+		});
+	}
+
+	/**
+	 * Returns the assignments with the participant delivery.
+	 *
+	 * @param participantId - The participant id.
+	 *
+	 * @returns The assignments with the participant delivery.
+	 */
+	static async getParticipantAssignmentsDelivery(participantId: string) {
+		const assignmentsWithDelivery = await db.query.assignments.findMany({
+			with: {
+				deliveries: {
+					limit: 1,
+					where(fields, operators) {
+						return operators.eq(fields.participantId, participantId);
+					},
+				},
+			},
 			orderBy: (assignments, { asc }) => asc(assignments.title),
+		});
+
+		return assignmentsWithDelivery.map(({ deliveries, ...assignment }) => {
+			return {
+				...assignment,
+				delivery: deliveries[0] ?? null,
+			};
 		});
 	}
 

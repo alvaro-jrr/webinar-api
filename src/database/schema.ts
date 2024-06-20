@@ -46,6 +46,7 @@ export const assignments = sqliteTable("assignments", {
 		.primaryKey(),
 	title: text("title", { length: 100 }).notNull(),
 	weighting: real("weighting").notNull(),
+	date: text("date").notNull(),
 });
 
 export const assignmentsRelations = relations(assignments, ({ many }) => ({
@@ -61,7 +62,8 @@ export const participants = sqliteTable("participants", {
 		.primaryKey(),
 	fullName: text("full_name", { length: 50 }).notNull(),
 	role: text("role", { length: 50 }).notNull(),
-	cvUrl: text("cv_url").notNull(),
+	cvUrl: text("cv_url").unique().notNull(),
+	photoUrl: text("photo_url").notNull(),
 });
 
 export const participantsRelations = relations(participants, ({ many }) => ({

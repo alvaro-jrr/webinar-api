@@ -15,6 +15,12 @@ participantsRouter.get("/:id", ParticipantController.getById);
 // Get a participant deliveries.
 participantsRouter.get("/:id/deliveries", ParticipantController.getDeliveries);
 
+// Get the assignments with the participant delivery.
+participantsRouter.get(
+	"/:id/assignments/delivery",
+	ParticipantController.getAssignmentsDelivery,
+);
+
 // Creates a participant.
 participantsRouter
 	.use(...authMiddleware)

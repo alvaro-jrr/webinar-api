@@ -1,7 +1,7 @@
 {
   "version": "6",
   "dialect": "sqlite",
-  "id": "8e9fb3fa-ab9b-4873-93af-613a8d9da945",
+  "id": "9ce9e09d-d575-4f9c-81f6-5e4ffc900876",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "tables": {
     "assignments": {
@@ -24,6 +24,13 @@
         "weighting": {
           "name": "weighting",
           "type": "real",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "date": {
+          "name": "date",
+          "type": "text",
           "primaryKey": false,
           "notNull": true,
           "autoincrement": false
@@ -211,9 +218,24 @@
           "primaryKey": false,
           "notNull": true,
           "autoincrement": false
+        },
+        "photo_url": {
+          "name": "photo_url",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
         }
       },
-      "indexes": {},
+      "indexes": {
+        "participants_cv_url_unique": {
+          "name": "participants_cv_url_unique",
+          "columns": [
+            "cv_url"
+          ],
+          "isUnique": true
+        }
+      },
       "foreignKeys": {},
       "compositePrimaryKeys": {},
       "uniqueConstraints": {}

@@ -1,5 +1,6 @@
 import { Context } from "hono";
 
+import { AssignmentDao } from "@/database/dao/assignments";
 import { DeliveryDao } from "@/database/dao/deliveries";
 import { ParticipantDao } from "@/database/dao/participants";
 
@@ -149,6 +150,33 @@ export class ParticipantController {
 		return response(c, {
 			status: 200,
 			data: deliveries,
+		});
+	}
+
+	/**
+	 * Returns the participant deliveries.
+	 *
+	 * @param c - The route context.
+	 */
+	static async getAssignmentsDelivery(c: Context) {
+		const id = c.req.param("id");
+
+		const exists = await ParticipantDao.exists(id);
+
+		if (!exists) {
+			return response(c, {
+				status: 200,
+				data: [],
+			});
+		}
+
+		/// Gets the assignments.
+		const assignments =
+			await AssignmentDao.getParticipantAssignmentsDelivery(id);
+
+		return response(c, {
+			status: 200,
+			data: assignments,
 		});
 	}
 

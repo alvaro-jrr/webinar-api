@@ -9,6 +9,7 @@ import { assignments } from "@/database/schema";
 export const insertAssignmentSchema = createInsertSchema(assignments, {
 	title: (schema) => schema.title.min(1).max(100),
 	weighting: (schema) => schema.weighting.gt(0).lte(100),
+	date: (schema) => schema.date.date(),
 });
 
 export type InsertAssignment = z.infer<typeof insertAssignmentSchema>;

@@ -1,7 +1,8 @@
 CREATE TABLE `assignments` (
 	`id` text PRIMARY KEY NOT NULL,
 	`title` text(100) NOT NULL,
-	`weighting` real NOT NULL
+	`weighting` real NOT NULL,
+	`date` text NOT NULL
 );
 --> statement-breakpoint
 CREATE TABLE `assistants` (
@@ -28,7 +29,8 @@ CREATE TABLE `participants` (
 	`id` text PRIMARY KEY NOT NULL,
 	`full_name` text(50) NOT NULL,
 	`role` text(50) NOT NULL,
-	`cv_url` text NOT NULL
+	`cv_url` text NOT NULL,
+	`photo_url` text NOT NULL
 );
 --> statement-breakpoint
 CREATE TABLE `users` (
@@ -40,4 +42,5 @@ CREATE TABLE `users` (
 --> statement-breakpoint
 CREATE UNIQUE INDEX `assistants_email_unique` ON `assistants` (`email`);--> statement-breakpoint
 CREATE UNIQUE INDEX `deliveries_assignment_id_participant_id_unique` ON `deliveries` (`assignment_id`,`participant_id`);--> statement-breakpoint
+CREATE UNIQUE INDEX `participants_cv_url_unique` ON `participants` (`cv_url`);--> statement-breakpoint
 CREATE UNIQUE INDEX `users_email_unique` ON `users` (`email`);
