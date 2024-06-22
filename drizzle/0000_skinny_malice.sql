@@ -12,7 +12,7 @@ CREATE TABLE `assistants` (
 	`company` text(50),
 	`position` text(50),
 	`interests` text,
-	`is_confirmed` integer DEFAULT false NOT NULL
+	`is_confirmed` integer NOT NULL
 );
 --> statement-breakpoint
 CREATE TABLE `deliveries` (

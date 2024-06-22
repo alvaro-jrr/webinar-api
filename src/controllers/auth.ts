@@ -42,6 +42,8 @@ export class AuthController {
 
 		// Set the JWT token.
 		const token = await JwtUtils.set(c, user.id);
+
+		// eslint-disable-next-line @typescript-eslint/no-unused-vars
 		const { password, ...restOfUser } = user;
 
 		return response(c, {

@@ -27,6 +27,7 @@ export const JwtUtils = {
 		context.set("jwtPayload", payload);
 		return sign(payload, env.JWT_SECRET);
 	},
+
 	/**
 	 * Returns the JWT payload.
 	 *
@@ -45,5 +46,32 @@ export const JwtUtils = {
 	 */
 	clear: (context: Context) => {
 		context.set("jwtPayload", null);
+	},
+	/**
+	 * Sets the JWT payload for the participant and returns the token.
+	 *
+	 * @param context - The app context.
+	 * @param participantId - The participant id to save.
+	 * @returns The JWT token.
+	 */
+	generate: ({
+		data,
+		expireTime,
+	}: {
+		data: { [key: string]: unknown };
+		expireTime: {
+			value: number;
+			unit: dayjs.ManipulateType;
+		};
+	}) => {
+		const now = dayjs();
+		const payload = {
+			iat: now.unix(),
+			nbf: now.unix(),
+			exp: now.add(expireTime.value, expireTime.unit).unix(),
+			...data,
+		} satisfies JWTPayload;
+
+		return sign(payload, env.JWT_SECRET);
 	},
 };

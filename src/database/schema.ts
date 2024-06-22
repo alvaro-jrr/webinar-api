@@ -32,9 +32,7 @@ export const assistants = sqliteTable("assistants", {
 	company: text("company", { length: 50 }),
 	position: text("position", { length: 50 }),
 	interests: text("interests"),
-	isConfirmed: integer("is_confirmed", { mode: "boolean" })
-		.notNull()
-		.default(false),
+	isConfirmed: integer("is_confirmed", { mode: "boolean" }).notNull(),
 });
 
 /**

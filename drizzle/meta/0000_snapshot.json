@@ -1,7 +1,7 @@
 {
   "version": "6",
   "dialect": "sqlite",
-  "id": "9ce9e09d-d575-4f9c-81f6-5e4ffc900876",
+  "id": "4a6259a4-7ba7-4d88-a109-78c9d0deda4b",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "tables": {
     "assignments": {
@@ -91,8 +91,7 @@
           "type": "integer",
           "primaryKey": false,
           "notNull": true,
-          "autoincrement": false,
-          "default": false
+          "autoincrement": false
         }
       },
       "indexes": {
