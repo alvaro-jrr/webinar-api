@@ -35,6 +35,14 @@ app.onError((err, c) => {
 	});
 });
 
+// Handle not found.
+app.notFound((c) => {
+	return response(c, {
+		status: 404,
+		message: "Not found",
+	});
+});
+
 const port = 3000;
 console.log(`Server is running on port ${port}`);
 showRoutes(app);

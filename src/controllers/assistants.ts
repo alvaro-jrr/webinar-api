@@ -66,8 +66,8 @@ export class AssistantController {
 
 		await EmailController.send({
 			to: assistant.email,
-			subject: "Confirmación de Asistencia al Webinar",
-			html: `<p>Hola, tu asistencia está casi formalizada. Por favor, accede a este enlace para verificar tu dirección de correo electrónico <a href="${env.WEB_URL}/assistants/confirm?token=${token}"></a>. El enlace expirará en 8 horas.</p>`,
+			subject: "Completa tu Registro al Webinar",
+			html: `<p>Hola, tu registro está casi formalizado. Por favor, accede a este enlace para <a href="${env.WEB_URL}/assistants/confirm?token=${token}">completar tu registro</a>. El enlace expirará en 8 horas.</p>`,
 			tags: [
 				{
 					name: "category",
