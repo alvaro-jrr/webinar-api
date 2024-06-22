@@ -1,7 +1,7 @@
 {
   "version": "6",
   "dialect": "sqlite",
-  "id": "4a6259a4-7ba7-4d88-a109-78c9d0deda4b",
+  "id": "a38ab943-b168-4b7e-9d28-f107774a2af6",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "tables": {
     "assignments": {
@@ -88,6 +88,13 @@
         },
         "is_confirmed": {
           "name": "is_confirmed",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "notify_event": {
+          "name": "notify_event",
           "type": "integer",
           "primaryKey": false,
           "notNull": true,

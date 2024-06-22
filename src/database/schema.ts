@@ -33,6 +33,7 @@ export const assistants = sqliteTable("assistants", {
 	position: text("position", { length: 50 }),
 	interests: text("interests"),
 	isConfirmed: integer("is_confirmed", { mode: "boolean" }).notNull(),
+	notifyEvent: integer("notify_event", { mode: "boolean" }).notNull(),
 });
 
 /**
