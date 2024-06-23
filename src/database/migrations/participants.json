@@ -1,0 +1,70 @@
+[
+	{
+		"fullName": "Joel Abreu",
+		"role": "Product Manager, Software Developer, UI/UX Designer, QA",
+		"cvUrl": "https://j4breu.github.io/",
+		"photoUrl": "https://raw.githubusercontent.com/alvaro-jrr/webinar-api/develop/resources/participants/joel.webp"
+	},
+	{
+		"fullName": "Helvis Basantes",
+		"role": "Software Developer, QA",
+		"cvUrl": "https://raikanwolfgithubio-production.up.railway.app",
+		"photoUrl": "https://raw.githubusercontent.com/alvaro-jrr/webinar-api/develop/resources/participants/helvis.webp"
+	},
+	{
+		"fullName": "Wuilkys Becerra",
+		"role": "Software Developer, QA",
+		"cvUrl": "https://wuilkysbecerra.pages.dev/",
+		"photoUrl": "https://raw.githubusercontent.com/alvaro-jrr/webinar-api/develop/resources/participants/wuilkys.webp"
+	},
+	{
+		"fullName": "Carlos Brito",
+		"role": "Software Developer, QA",
+		"cvUrl": "https://cbcv.netlify.app/"
+	},
+	{
+		"fullName": "Luis Brito",
+		"role": "Software Developer, UI/UX Designer, QA",
+		"cvUrl": "https://cv-mstaz4s-projects.vercel.app/"
+	},
+	{
+		"fullName": "Alejandro Caraballo",
+		"role": "Software Developer, UI/UX Designer, QA",
+		"cvUrl": "https://alejandrocaraballo.github.io/Portafolio-AC/"
+	},
+	{
+		"fullName": "Dionner Figueras",
+		"role": "Software Developer, UI/UX Designer, QA",
+		"cvUrl": "https://portfoliodionnerfigueras.netlify.app/",
+		"photoUrl": "https://raw.githubusercontent.com/alvaro-jrr/webinar-api/develop/resources/participants/dionner.webp"
+	},
+	{
+		"fullName": "Yesenia Larenas",
+		"role": "Software Developer, UI/UX Designer, QA",
+		"cvUrl": "https://cv-production-641b.up.railway.app/",
+		"photoUrl": "https://raw.githubusercontent.com/alvaro-jrr/webinar-api/develop/resources/participants/yesenia.webp"
+	},
+	{
+		"fullName": "Angel Padrino",
+		"role": "Software Developer, UI/UX Designer, QA",
+		"cvUrl": "https://github.com/plumreiss",
+		"photoUrl": "https://raw.githubusercontent.com/alvaro-jrr/webinar-api/develop/resources/participants/angel.webp"
+	},
+	{
+		"fullName": "Alvaro Resplandor",
+		"role": "Software Developer, UI/UX Designer, QA",
+		"cvUrl": "https://alvaro-resplandor.vercel.app/",
+		"photoUrl": "https://raw.githubusercontent.com/alvaro-jrr/webinar-api/develop/resources/participants/alvaro.webp"
+	},
+	{
+		"fullName": "Daniel Rodriguez",
+		"role": "Software Architecture, Software Developer, QA",
+		"cvUrl": "https://dancrewzus.github.io/",
+		"photoUrl": "https://raw.githubusercontent.com/alvaro-jrr/webinar-api/develop/resources/participants/daniel.webp"
+	},
+	{
+		"fullName": "Jose Yepez",
+		"role": "Software Developer, QA",
+		"cvUrl": "https://cvjey-github-net.vercel.app/"
+	}
+]
