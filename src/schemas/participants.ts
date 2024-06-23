@@ -13,7 +13,9 @@ export const insertParticipantSchema = createInsertSchema(participants, {
 	photoUrl: (schema) => schema.photoUrl.url().optional(),
 });
 
-export type InsertParticipant = z.infer<typeof insertParticipantSchema>;
+export type InsertParticipant = z.infer<typeof insertParticipantSchema> & {
+	photoUrl: string;
+};
 
 /**
  * The schema to update a participant.

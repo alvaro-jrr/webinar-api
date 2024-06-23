@@ -5,6 +5,7 @@ import { showRoutes } from "hono/dev";
 import { HTTPException } from "hono/http-exception";
 import { logger } from "hono/logger";
 
+import { cronJobs } from "./controllers/cron-jobs";
 import { response } from "./lib/utils";
 import { assignmentsRouter } from "./routes/assignments";
 import { assistantsRouter } from "./routes/assistants";
@@ -46,6 +47,9 @@ app.notFound((c) => {
 const port = 3000;
 console.log(`Server is running on port ${port}`);
 showRoutes(app);
+
+// Run cron jobs listener.
+cronJobs();
 
 serve({
 	fetch: app.fetch,

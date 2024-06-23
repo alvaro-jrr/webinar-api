@@ -86,6 +86,32 @@ export class AssistantDao {
 	}
 
 	/**
+	 * Returns the emails of the assistants that wants to be notified.
+	 *
+	 * @param params - The query params.
+	 *
+	 * @returns The emails assistants to notify.
+	 */
+	static async getAllNotifiableEmails({
+		page = 1,
+		count,
+	}: Partial<{ page: number; count: number }> = {}) {
+		const assistants = await db.query.assistants.findMany({
+			columns: {
+				email: true,
+			},
+			limit: count,
+			offset: count ? (page - 1) * count : undefined,
+			orderBy: (assistants, { asc }) => asc(assistants.fullName),
+			where(assistants, { eq }) {
+				return eq(assistants.notifyEvent, true);
+			},
+		});
+
+		return assistants.map((assistant) => assistant.email);
+	}
+
+	/**
 	 * Returns the assistant with the id.
 	 *
 	 * @param id - The assistant id.

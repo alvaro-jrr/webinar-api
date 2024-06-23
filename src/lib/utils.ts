@@ -33,3 +33,14 @@ export function response(
 		status,
 	);
 }
+
+/**
+ * Delays a function execution.
+ *
+ * @param milliseconds - The number of milliseconds to delay.
+ *
+ * @returns A promise that is resolved in the time of milliseconds set.
+ */
+export function delay(milliseconds: number) {
+	return new Promise((resolve) => setTimeout(resolve, milliseconds));
+}

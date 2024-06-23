@@ -1,7 +1,7 @@
 import "dotenv/config";
 import { migrate } from "drizzle-orm/libsql/migrator";
 
-import { DEFAULT_PHOTO_URL } from "@/lib/constants";
+import { Constants } from "@/lib/constants";
 
 import { db, client } from "./client";
 import assignmentsJson from "./migrations/assignments.json";
@@ -18,7 +18,7 @@ await db.insert(participants).values(
 	participantsJson.map((value) => {
 		return {
 			...value,
-			photoUrl: value.photoUrl ?? DEFAULT_PHOTO_URL,
+			photoUrl: value.photoUrl ?? Constants.defaultPhotoUrl,
 		};
 	}),
 );
