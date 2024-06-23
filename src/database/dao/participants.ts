@@ -4,6 +4,7 @@ import { InsertParticipant, UpdateParticipant } from "@/schemas/participants";
 
 import { db } from "../client";
 import { participants } from "../schema";
+import { AssignmentDao } from "./assignments";
 
 export class ParticipantDao {
 	/**
@@ -80,10 +81,17 @@ export class ParticipantDao {
 	 *
 	 * @returns The participant on success.
 	 */
-	static async getById(id: string) {
-		return db.query.participants.findFirst({
+	static async getById(id: string, { assignments } = { assignments: false }) {
+		const participant = await db.query.participants.findFirst({
 			where: (participants, { eq }) => eq(participants.id, id),
 		});
+
+		if (!participant || !assignments) return participant;
+
+		return {
+			...participant,
+			assignments: await AssignmentDao.getParticipantAssignmentsDelivery(id),
+		};
 	}
 
 	/**

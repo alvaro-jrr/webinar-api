@@ -131,7 +131,13 @@ export class ParticipantController {
 	 */
 	static async getById(c: Context) {
 		const id = c.req.param("id");
-		const participant = await ParticipantDao.getById(id);
+
+		// Wether should retrieve the assignments of the participant.
+		const shouldGetAssignments = c.req.query("assignments") === "true";
+
+		const participant = await ParticipantDao.getById(id, {
+			assignments: shouldGetAssignments,
+		});
 
 		return response(c, {
 			status: 200,
