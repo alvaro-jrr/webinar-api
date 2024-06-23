@@ -17,7 +17,7 @@ import { usersRouter } from "./routes/users";
 const app = new Hono({ strict: false });
 
 // Middlewares.
-app.use(cors());
+app.use("*", cors());
 app.use(logger());
 
 // Routes.
