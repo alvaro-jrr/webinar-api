@@ -13,8 +13,12 @@ export class UserDao {
 	 */
 	static async create(user: InsertUser) {
 		const [insertedUser] = await db.insert(users).values(user).returning();
+		if (!insertedUser) return null;
 
-		return insertedUser;
+		// eslint-disable-next-line @typescript-eslint/no-unused-vars
+		const { password, ...restOfUser } = insertedUser;
+
+		return restOfUser;
 	}
 
 	/**

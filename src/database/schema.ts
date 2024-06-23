@@ -60,7 +60,7 @@ export const participants = sqliteTable("participants", {
 		.$defaultFn(() => createId())
 		.primaryKey(),
 	fullName: text("full_name", { length: 50 }).notNull(),
-	role: text("role", { length: 50 }).notNull(),
+	role: text("role", { length: 70 }).notNull(),
 	cvUrl: text("cv_url").unique().notNull(),
 	photoUrl: text("photo_url").notNull(),
 });

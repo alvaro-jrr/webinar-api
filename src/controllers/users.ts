@@ -48,11 +48,9 @@ export class UserController {
 			});
 		}
 
-		const { password, ...restOfUser } = insertedUser;
-
 		return response(c, {
 			status: 201,
-			data: restOfUser,
+			data: insertedUser,
 		});
 	}
 }

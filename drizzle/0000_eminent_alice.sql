@@ -29,7 +29,7 @@ CREATE TABLE `deliveries` (
 CREATE TABLE `participants` (
 	`id` text PRIMARY KEY NOT NULL,
 	`full_name` text(50) NOT NULL,
-	`role` text(50) NOT NULL,
+	`role` text(70) NOT NULL,
 	`cv_url` text NOT NULL,
 	`photo_url` text NOT NULL
 );
