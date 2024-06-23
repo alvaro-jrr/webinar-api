@@ -13,19 +13,17 @@ assignmentsRouter.get("/", AssignmentController.getAll);
 assignmentsRouter.get("/remaining", AssignmentController.getRemainingWeighting);
 
 // Create an assignment.
-assignmentsRouter.use(...authMiddleware).post("/", AssignmentController.create);
+assignmentsRouter.post("/", ...authMiddleware, AssignmentController.create);
 
 // Get an assignment.
-assignmentsRouter
-	.use(...authMiddleware)
-	.get("/:id", AssignmentController.getById);
+assignmentsRouter.get("/:id", ...authMiddleware, AssignmentController.getById);
 
 // Delete an assignment.
-assignmentsRouter
-	.use(...authMiddleware)
-	.delete("/:id", AssignmentController.delete);
+assignmentsRouter.delete(
+	"/:id",
+	...authMiddleware,
+	AssignmentController.delete,
+);
 
 // Update an assignment.
-assignmentsRouter
-	.use(...authMiddleware)
-	.put("/:id", AssignmentController.update);
+assignmentsRouter.put("/:id", ...authMiddleware, AssignmentController.update);

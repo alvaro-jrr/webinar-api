@@ -10,6 +10,4 @@ export const authRouter = new Hono();
 authRouter.post("/login", AuthController.login);
 
 // Check the user status.
-authRouter
-	.use(...authMiddleware)
-	.get("/check-status", AuthController.checkStatus);
+authRouter.get("/check-status", ...authMiddleware, AuthController.checkStatus);

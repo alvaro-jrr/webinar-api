@@ -10,23 +10,23 @@ export const deliveriesRouter = new Hono();
 deliveriesRouter.get("/", DeliveryController.getAll);
 
 // Create a delivery.
-deliveriesRouter.use(...authMiddleware).post("/", DeliveryController.create);
+deliveriesRouter.post("/", ...authMiddleware, DeliveryController.create);
 
 // Create many deliveries.
-deliveriesRouter
-	.use(...authMiddleware)
-	.post("/many", DeliveryController.createMany);
+deliveriesRouter.post(
+	"/many",
+	...authMiddleware,
+	DeliveryController.createMany,
+);
 
 // Get a delivery.
-deliveriesRouter.use(...authMiddleware).get("/:id", DeliveryController.getById);
+deliveriesRouter.get("/:id", ...authMiddleware, DeliveryController.getById);
 
 // Delete a delivery.
-deliveriesRouter
-	.use(...authMiddleware)
-	.delete("/:id", DeliveryController.delete);
+deliveriesRouter.delete("/:id", ...authMiddleware, DeliveryController.delete);
 
 // Update a delivery.
-deliveriesRouter.use(...authMiddleware).put("/:id", DeliveryController.update);
+deliveriesRouter.put("/:id", ...authMiddleware, DeliveryController.update);
 
 // Update many deliveries.
-deliveriesRouter.use(...authMiddleware).put("/many", DeliveryController.update);
+deliveriesRouter.put("/many", ...authMiddleware, DeliveryController.update);

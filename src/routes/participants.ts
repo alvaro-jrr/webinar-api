@@ -22,16 +22,14 @@ participantsRouter.get(
 );
 
 // Creates a participant.
-participantsRouter
-	.use(...authMiddleware)
-	.post("/", ParticipantController.create);
+participantsRouter.post("/", ...authMiddleware, ParticipantController.create);
 
 // Deletes a participant.
-participantsRouter
-	.use(...authMiddleware)
-	.delete("/:id", ParticipantController.delete);
+participantsRouter.delete(
+	"/:id",
+	...authMiddleware,
+	ParticipantController.delete,
+);
 
 // Update a participant.
-participantsRouter
-	.use(...authMiddleware)
-	.put("/:id", ParticipantController.update);
+participantsRouter.put("/:id", ...authMiddleware, ParticipantController.update);
