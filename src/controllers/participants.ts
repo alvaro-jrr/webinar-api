@@ -9,6 +9,7 @@ import {
 	updateParticipantSchema,
 } from "@/schemas/participants";
 
+import { DEFAULT_PHOTO_URL } from "@/lib/constants";
 import { response } from "@/lib/utils";
 
 export class ParticipantController {
@@ -29,7 +30,10 @@ export class ParticipantController {
 
 		const { data: body } = parsed;
 
-		const participant = await ParticipantDao.create(body);
+		const participant = await ParticipantDao.create({
+			...body,
+			photoUrl: body.photoUrl ?? DEFAULT_PHOTO_URL,
+		});
 
 		if (!participant) {
 			return response(c, {

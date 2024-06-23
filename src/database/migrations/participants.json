@@ -20,20 +20,17 @@
 	{
 		"fullName": "Carlos Brito",
 		"role": "Software Developer, QA",
-		"cvUrl": "https://cbcv.netlify.app/",
-		"photoUrl": "https://raw.githubusercontent.com/alvaro-jrr/webinar-api/develop/resources/participants/default.webp"
+		"cvUrl": "https://cbcv.netlify.app/"
 	},
 	{
 		"fullName": "Luis Brito",
 		"role": "Software Developer, UI/UX Designer, QA",
-		"cvUrl": "https://cv-mstaz4s-projects.vercel.app/",
-		"photoUrl": "https://raw.githubusercontent.com/alvaro-jrr/webinar-api/develop/resources/participants/default.webp"
+		"cvUrl": "https://cv-mstaz4s-projects.vercel.app/"
 	},
 	{
 		"fullName": "Alejandro Caraballo",
 		"role": "Software Developer, UI/UX Designer, QA",
-		"cvUrl": "https://alejandrocaraballo.github.io/Portafolio-AC/",
-		"photoUrl": "https://raw.githubusercontent.com/alvaro-jrr/webinar-api/develop/resources/participants/default.webp"
+		"cvUrl": "https://alejandrocaraballo.github.io/Portafolio-AC/"
 	},
 	{
 		"fullName": "Dionner Figueras",
@@ -68,7 +65,6 @@
 	{
 		"fullName": "Jose Yepez",
 		"role": "Software Developer, QA",
-		"cvUrl": "https://cvjey-github-net.vercel.app/",
-		"photoUrl": "https://raw.githubusercontent.com/alvaro-jrr/webinar-api/develop/resources/participants/default.webp"
+		"cvUrl": "https://cvjey-github-net.vercel.app/"
 	}
 ]
