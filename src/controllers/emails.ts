@@ -33,7 +33,63 @@ export class EmailController {
 			to: typeof to === "string" ? to : to.slice(0, 50),
 			subject,
 			tags,
-			html,
+			html: `
+				<head>
+				  <link
+				    href='https://fonts.googleapis.com/css?family=Inter'
+				    rel='stylesheet'
+				  >
+				</head>
+				<body style='background-color: white'>
+				  <table style='
+				    color: black;
+				    max-width: 600px;
+				    margin: 0 auto;
+				    padding: 0;
+				    border-collapse: collapse;
+				    font-family:
+				      "Inter",
+				      "Helvetica",
+				      "Arial",
+				      sans-serif;
+				  '
+				    height='100%'
+				    width='100%'
+				  >
+				    <tbody>
+				      <tr>
+					<td style='padding: 30px;' align='center' valign='top'>
+					  <div>
+					    <img
+					      style='text-align: center;'
+					      src='https://utfs.io/f/a6d4d414-e41e-462f-bf5f-bcb5fedf89df-2olo5d.png'
+					      alt='Notificación de Tech Talent Hub'
+					      width='48'
+					    />
+					    <h1 style='
+					      font-size: 2.4em;
+					      line-height: 1.3;
+					    '
+					    >Hola!</h1>
+					    <p style='font-size: 1.6em; line-height: 1.3'>
+					      Nuestra presentación tendrá lugar este 15 de Julio.
+					    </p>
+					    <p style='font-size: 1.6em; line-height: 1.3'>
+					      Gracias por tu interés en formar parte.
+					    </p>
+					    <hr>
+					    <p><strong>
+					      <a
+						href='https://meet.google.com/yse-jdti-oot'>Enlace de Google Meet
+					      </a>
+					    </strong></p>
+					  </div>
+					</td>
+				      </tr>
+				    </tbody>
+				  </table>
+				</body>
+			      `,
 		});
 	}
 
@@ -63,7 +119,63 @@ export class EmailController {
 				to: emails,
 				subject: "Recordatorio de Webinar",
 				from: `${Constants.emailFromName} <notifications@resend.dev>`,
-				html: "<p>Recuerda que este 15 de julio se realizará el Webinar sobre Tech Talent Hub, !no te lo pierdas! Te esperamos</p>",
+				html: `
+				  <head>
+				    <link
+				      href='https://fonts.googleapis.com/css?family=Inter'
+				      rel='stylesheet'
+				    >
+				  </head>
+				  <body style= 'background-color: white'>
+				    <table style='
+				      color: black;
+				      max-width: 600px;
+				      margin: 0 auto;
+				      padding: 0;
+				      border-collapse: collapse;
+				      font-family:
+					&quot;Inter&quot;,
+					&quot;Helvetica&quot;,
+					&quot;Arial&quot;,
+					sans-serif;
+				      '
+				      height='100%'
+				      width='100%'
+				    >
+				      <tbody>
+					<tr>
+					  <td style='padding: 30px;' align='center' valign='top'>
+					    <div>
+					      <img
+						style='text-align: center;'
+						src='https://utfs.io/f/a6d4d414-e41e-462f-bf5f-bcb5fedf89df-2olo5d.png'
+						alt='Notificación de Tech Talent Hub'
+						width='48'
+					      >
+					      <h1 style='
+						font-size: 2.4em;
+						line-height: 1.3;
+						'
+					      >Hola de nuevo!</h1>
+					      <p style='font-size: 1.6em; line-height: 1.3'>
+						El evento será el día de hoy, a partir de las 6:00PM.
+					      </p>
+					      <p style='font-size: 1.6em; line-height: 1.3'>
+						No te lo pierdas!
+					      </p>
+					      <hr>
+					      <p><strong>
+						<a
+						  href='https://meet.google.com/yse-jdti-oot'>Enlace de Google Meet
+						</a>
+					      </strong></p>
+					    </div>
+					  </td>
+					</tr>
+				      </tbody>
+				    </table>
+				  </body>
+				`,
 			});
 
 			// There's no assistants left.
